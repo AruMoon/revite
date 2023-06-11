@@ -3732,6 +3732,7 @@ __metadata:
     lodash.defaultsdeep: ^4.6.1
     lodash.isequal: ^4.5.0
     long: ^5.2.0
+    lottie-react: ^2.4.0
     mdast-util-to-hast: ^12.1.2
     mediasoup-client: "npm:@insertish/mediasoup-client@3.6.36-esnext"
     mobx: ^6.6.0
@@ -6205,6 +6206,25 @@ __metadata:
   languageName: node
   linkType: hard
 
+"lottie-react@npm:^2.4.0":
+  version: 2.4.0
+  resolution: "lottie-react@npm:2.4.0"
+  dependencies:
+    lottie-web: ^5.10.2
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+  checksum: e9ea4a89be90a29bde4a83956f76a80d1f8031882f18ea38ef5271d2aafd8e68348ae6297f185ed85b149ca4896fe33aee7faf9780b88a1b289b8e146f477448
+  languageName: node
+  linkType: hard
+
+"lottie-web@npm:^5.10.2":
+  version: 5.12.0
+  resolution: "lottie-web@npm:5.12.0"
+  checksum: 77c35be880e484d1a766f21f789ede7c7be59e957579580a18c2dfec08c4812c03e1d652e453166c31fd80556446d6b857fb490d901e34154105532519bc5ef5
+  languageName: node
+  linkType: hard
+
 "lru-cache@npm:^6.0.0":
   version: 6.0.0
   resolution: "lru-cache@npm:6.0.0"
@@ -8016,14 +8036,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"revolt-api@npm:0.5.8":
-  version: 0.5.8
-  resolution: "revolt-api@npm:0.5.8"
+"revolt-api@npm:0.6.0":
+  version: 0.6.0
+  resolution: "revolt-api@npm:0.6.0"
   dependencies:
     "@insertish/oapi": 0.1.18
     axios: ^0.26.1
     lodash.defaultsdeep: ^4.6.1
-  checksum: d488fa87774e4e9d0b3136779c555cbed257d2b76a298b17dca346cc3909f81e84aa516c10a415a7c20cd31990d540ade5489f69e06f69e14ba4974a26aa145e
+  checksum: 94865aa1aee5b05682ffe4e40a0fe431809f879437399943fc429d078160a5fe24686011b43639d6fae88e9a7a43fbe4bb9beb9bbe1bb3070965636f0ec051fd
   languageName: node
   linkType: hard
 
@@ -8040,7 +8060,7 @@ __metadata:
     lodash.isequal: ^4.5.0
     long: ^5.2.0
     mobx: ^6.3.2
-    revolt-api: 0.5.8
+    revolt-api: 0.6.0
     ulid: ^2.3.0
     ws: ^8.2.2
   languageName: node

@@ -163,16 +163,22 @@ export const UserProfile = observer(
                             }
                         />
                         <div className={styles.details}>
-                            <Localizer>
+                            <div className={styles.usernameDetail}>
+                                <span
+                                    className={styles.displayname}
+                                    onClick={() =>
+                                        modalController.writeText(user.username)
+                                    }>
+                                    {user.display_name ?? user.username}
+                                </span>
                                 <span
                                     className={styles.username}
                                     onClick={() =>
                                         modalController.writeText(user.username)
                                     }>
-                                    {"@"}
-                                    {user.username}
+                                    {user.username}#{user.discriminator}
                                 </span>
-                            </Localizer>
+                            </div>
                             {user.status?.text && (
                                 <span className={styles.status}>
                                     <UserStatus user={user} tooltip />
@@ -230,6 +236,21 @@ export const UserProfile = observer(
                             </IconButton>
                         )}
                     </div>
+                    {badges > 0 && (
+                        <div
+                            style={{
+                                marginInline: "1em",
+                                padding: "0.5em",
+                                background: "var(--primary-background)",
+                                borderRadius: "8px",
+                                width: "fit-content",
+                                backgroundColor:
+                                    "rgba(var(--primary-header-rgb), max(var(--min-opacity), 0.65))",
+                                backdropFilter: "blur(20px)",
+                            }}>
+                            <UserBadges badges={badges} uid={user._id} />
+                        </div>
+                    )}
                     <div className={styles.tabs}>
                         <div
                             data-active={tab === "profile"}
@@ -261,10 +282,7 @@ export const UserProfile = observer(
                 </div>
                 <div className={styles.content}>
                     {tab === "profile" &&
-                        (profile?.content ||
-                        badges > 0 ||
-                        flags > 0 ||
-                        user.bot ? (
+                        (profile?.content || flags > 0 || user.bot ? (
                             <div>
                                 {flags & 1 ? (
                                     /** ! FIXME: i18n this area */
@@ -314,17 +332,6 @@ export const UserProfile = observer(
                                         </div>
                                     </>
                                 ) : undefined}
-                                {badges > 0 && (
-                                    <div className={styles.category}>
-                                        <Text id="app.special.popovers.user_profile.sub.badges" />
-                                    </div>
-                                )}
-                                {badges > 0 && (
-                                    <UserBadges
-                                        badges={badges}
-                                        uid={user._id}
-                                    />
-                                )}
                                 {profile?.content && (
                                     <>
                                         <div className={styles.category}>

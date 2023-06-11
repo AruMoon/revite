@@ -9,6 +9,7 @@ export type Modal = {
               | "create_group"
               | "create_server"
               | "custom_status"
+              | "modify_displayname"
               | "add_friend";
       }
     | ({
@@ -40,6 +41,7 @@ export type Modal = {
           type: "changelog";
           initial?: number;
       }
+    | { type: "changelog_usernames" }
     | {
           type: "sign_out_sessions";
           client: Client;

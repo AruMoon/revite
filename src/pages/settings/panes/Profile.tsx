@@ -1,4 +1,5 @@
 import { Markdown } from "@styled-icons/boxicons-logos";
+import { UserCircle } from "@styled-icons/boxicons-solid";
 import { observer } from "mobx-react-lite";
 import { useHistory } from "react-router-dom";
 import { API } from "revolt.js";
@@ -7,7 +8,7 @@ import styles from "./Panes.module.scss";
 import { Text } from "preact-i18n";
 import { useCallback, useContext, useEffect, useState } from "preact/hooks";
 
-import { Button, LineDivider, Tip } from "@revoltchat/ui";
+import { Button, LineDivider, Tip, CategoryButton } from "@revoltchat/ui";
 
 import TextAreaAutoSize from "../../../lib/TextAreaAutoSize";
 import { useTranslation } from "../../../lib/i18n";
@@ -17,6 +18,7 @@ import AutoComplete, {
 } from "../../../components/common/AutoComplete";
 import { useSession } from "../../../controllers/client/ClientController";
 import { FileUploader } from "../../../controllers/client/jsx/legacy/FileUploads";
+import { modalController } from "../../../controllers/modals/ModalController";
 import { UserProfile } from "../../../controllers/modals/components/legacy/UserProfile";
 
 export const Profile = observer(() => {
@@ -77,6 +79,19 @@ export const Profile = observer(() => {
                     {...({} as any)}
                 />
             </div>
+            <div className={styles.titleNew}>
+                Display Name
+                <div className={styles.new}>NEW</div>
+            </div>
+            <CategoryButton
+                onClick={() =>
+                    modalController.push({ type: "modify_displayname" })
+                }
+                icon={<UserCircle size={24} />}
+                action="chevron"
+                description={"Change your display name to whatever you like"}>
+                Display Name
+            </CategoryButton>
             {/*<h3>Badges</h3>
             <div className={styles.badgePicker}>
                 <div className={styles.overlay} />
